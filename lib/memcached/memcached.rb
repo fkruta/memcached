@@ -316,7 +316,7 @@ Please note that when <tt>:no_block => true</tt>, update methods do not raise on
     value, flags = @codec.encode(key, value, flags) if encode
     begin
       check_return_code(
-        Lib.memcached_set(@struct, key, value, ttl, flags),
+        Lib.memcached_set(@struct, key.to_s, value, ttl, flags),
         key
       )
     rescue => e
